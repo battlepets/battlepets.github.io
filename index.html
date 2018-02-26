@@ -1672,21 +1672,21 @@ function addBreedRow(name, breed) {
     cell.appendChild(document.createTextNode(breeds[breed][3] + " "));
 
     var img = document.createElement("img");
-    img.src = "https://www.warcraftpets.com/images/icons/battle/pet-battle-health.png";
+    img.src = "health.png";
     img.alt = "Health";
     img.title = "Health";
     cell.appendChild(img);
     cell.appendChild(document.createTextNode(calcStat(name, breed, 0)));
 
     img = document.createElement("img");
-    img.src = "https://www.warcraftpets.com/images/icons/battle/pet-battle-power.png";
+    img.src = "power.png";
     img.alt = "Power";
     img.title = "Power";
     cell.appendChild(img);
     cell.appendChild(document.createTextNode(calcStat(name, breed, 1)));
 
     img = document.createElement("img");
-    img.src = "https://www.warcraftpets.com/images/icons/battle/pet-battle-speed.png";
+    img.src = "speed.png";
     img.alt = "Speed";
     img.title = "Speed";
     cell.appendChild(img);
