@@ -11,7 +11,7 @@ a:hover {text-decoration: underline;}
 img {height: 16px;}
 select {width: 230px;}
 td {white-space: nowrap;}
-td.breed {text-align: center; font-family: monospace;}
+td.breed {padding-left: 40px; font-family: monospace;}
 #input {width: 260px;}
 </style>
 </head>
@@ -1657,11 +1657,7 @@ function calcStat(name, breed, stat) {
     if (stat === 0) {
         t = t * 5 + 100;
     }
-    t = Math.round(t);
-    if (t <= 0) {
-        t = "000"; // Zoom
-    }
-    return t + " ";
+    return Math.max(Math.round(t), 0) + " ";
 }
 
 function addBreedRow(name, breed) {
