@@ -1964,9 +1964,9 @@ function addPetRow(name, picks) {
 function calcStats(base, breed) {
     "use strict";
     var s = [];
-    s[0] = Math.round((base[0] + breed[0]) * 162.5 + 100);
-    s[1] = Math.round((base[1] + breed[1]) * 32.5);
-    s[2] = Math.max(0, Math.round((base[2] + breed[2]) * 32.5));
+    s[0] = Math.ceil((base[0] + breed[0]) * 162.5 + 99.5);
+    s[1] = Math.ceil((base[1] + breed[1]) * 32.5 - 0.5);
+    s[2] = Math.max(0, Math.ceil((base[2] + breed[2]) * 32.5 - 0.5)); // Zoom has negative speed
     s[3] = breed[3];
     return s;
 }
