@@ -69,6 +69,20 @@ var families = [
     "Mechanical"
 ];
 
+var icons = [
+    0,
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-humanoid.87ff1eca5723c94e441dcbba1a872a4a.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-dragonkin.47be5c28e75970ff438c4b153685cf60.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-flying.cd27deb525784fecde668bc7bccb493f.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-undead.8cf4e9814d51d451fc5ac776988b3d44.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-critter.9755f688957a828e1e9da31dfa606c87.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-magic.ec2917cb9927e77230b14ea98a75435d.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-elemental.427b34e2cbdc11723f169bd3ee7416ce.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-beast.33b30750d00865c29dd847aca3e974a8.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-aquatic.3ae750ee0120cb736424696284665685.png",
+    "https://assets.worldofwarcraft.com/static/components/Pet/Pet-family-mechanical.3f1f19bb90e6fc3a399e3b8aed044331.png"
+];
+
 var abilities = {
     "110": {n: "Bite"},
     "111": {n: "Punch"},
@@ -701,6 +715,7 @@ var abilities = {
     "2253": {n: "Shadowmeld", c: 536}, // Prowl
     "2255": {n: "Corrupted Ground"},
     "2258": {n: "Corrupted Touch"},
+    "2283": {n: "Dragon's Call"},
     "2288": {n: "Cluck"},
     "2291": {n: "Sludge Belch"},
     "2294": {n: "Soul Steal"},
@@ -708,7 +723,10 @@ var abilities = {
     "2298": {n: "Raise Ally"},
     "2338": {n: "Vault Drop"},
     "2340": {n: "Coin Toss"},
-    "2341": {n: "Money Meteor"}
+    "2341": {n: "Money Meteor"},
+    "2346": {n: "Swipe"},
+    "2347": {n: "Raise Dead"},
+    "2348": {n: "Mass Resurrection", c: 2347} // Raise Dead
 };
 
 var species = {
@@ -1835,6 +1853,7 @@ var species = {
     "Living Amber": {i: 2589, c: 150380, f: 6, a: [445, 1026, 488, 380, 486, 308], s: [8, 9, 7], b: [11]},
     "Ravenous Prideling": {i: 2590, c: 150381, f: 7, a: [1056, 1055, 593, 472, 1123, 277], s: [6.75, 8.625, 8.625], b: [10]},
     "Happiness": {i: 2591, c: 150385, f: 7, a: [2258, 2255, 1912, 1056, 256, 794], s: [9.125, 8.375, 6.5], b: [4]},
+    "Lil' Nefarian": {i: 2621, c: 151779, f: 2, a: [393, 2283, 1756, 169, 1956, 172], s: [8.25, 8.5, 7.25], b: []},
     "Minimancer": {i: 2638, c: 154445, f: 4, a: [422, 2298, 214, 2294, 1411, 1091], s: [9.125, 6.25, 8.625], b: [6]},
     "Sandclaw Pincher": {i: 2645, c: 154697, f: 9, a: [2067, 249, 934, 355, 416, 1013], s: [8, 8.1, 7.9], b: [3, 7, 8, 10]},
     "Sandclaw Sunshell": {i: 2646, c: 154702, f: 9, a: [2067, 934, 1380, 528, 249, 1013], s: [8.15, 8.15, 7.7], b: [7, 8, 10]},
@@ -1924,7 +1943,14 @@ var species = {
     "Slimy Hermit Crab": {i: 2763, c: 151632, f: 9, a: [445, 764, 595, 608, 2062, 450], s: [8.25, 8.125, 7.625], b: [3, 4, 5, 8]},
     "Slimy Sea Slug": {i: 2765, c: 151631, f: 9, a: [445, 764, 595, 608, 2062, 450], s: [7.75, 8.625, 7.625], b: [3, 10, 11, 12]},
     "Armored Vaultbot": {i: 2766, c: 155829, f: 10, a: [2340, 985, 2338, 384, 350, 2341], s: [10.25, 6.875, 6.875], b: [6]},
-    "Burnout": {i: 2767, c: 155865, f: 4, a: [501, 468, 218, 648, 221, 350], s: [7.325, 8.45, 8.225], b: [8]}
+    "Burnout": {i: 2767, c: 155865, f: 4, a: [501, 468, 218, 648, 221, 350], s: [7.325, 8.45, 8.225], b: [8]},
+    "Rikki": {i: 2776, c: 157524, f: 8, a: [2346, 352, 578, 354, 1054, 1736], s: [8.15, 7.575, 8.275], b: [11]},
+    "Gillvanas": {i: 2777, c: 157715, f: 1, a: [771, 652, 321, 784, 256, 2347], s: [8, 8, 8], b: [4]},
+    "Finduin": {i: 2778, c: 157716, f: 1, a: [1682, 767, 766, 1100, 1105, 2348], s: [8, 8, 8], b: [6]},
+    "Papi": {i: 2792, c: 158681, f: 3, a: [420, 1545, 515, 563, 2101, 1963], s: [8.725, 8.275, 7], b: [4, 5, 10]},
+    "Sunsoaked Flitter": {i: 2793, c: 158683, f: 3, a: [119, 506, 190, 1370, 507, 404], s: [7.25, 8.25, 8.5], b: [3, 4, 5]},
+    "Crimson Skipper": {i: 2794, c: 158685, f: 3, a: [394, 803, 1043, 1370, 256, 517], s: [7.25, 9, 7.75], b: [5, 8]},
+    "Jenafur": {i: 2795, c: 159783, f: 8, a: [119, 1895, 1016, 1962, 1068, 794], s: [7.825, 8.675, 7.5], b: []}
 };
 
 function addPetRow(name, picks) {
@@ -1934,7 +1960,7 @@ function addPetRow(name, picks) {
     var cell = row.insertCell();
     var img = document.createElement("img");
     var family = families[species[name].f];
-    img.src = "https://worldofwarcraft.akamaized.net/static/components/Pet/Pet-family-" + family.toLowerCase() + ".png";
+    img.src = icons[species[name].f];
     img.alt = family;
     img.title = family;
     cell.appendChild(img);
